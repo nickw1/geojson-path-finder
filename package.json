@@ -1,6 +1,6 @@
 {
-  "name": "geojson-path-finder",
-  "version": "1.5.2",
+  "name": "geojson-path-finder-nw",
+  "version": "1.5.9001",
   "description": "Find shortest path through a network of GeoJSON",
   "repository": "git@github.com:perliedman/geojson-path-finder.git",
   "homepage": "https://github.com/perliedman/geojson-path-finder",
@@ -11,7 +11,7 @@
   "scripts": {
     "test": "tap test/*.js | tap-spec"
   },
-  "author": "Per Liedman <per@liedman.net>",
+  "author": "Per Liedman <per@liedman.net>; mods by Nick Whitelegg (@nickw1 github)",
   "license": "ISC",
   "dependencies": {
     "@turf/distance": "^6.0.1",
