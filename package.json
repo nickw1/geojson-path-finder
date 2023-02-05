@@ -1,6 +1,6 @@
 {
   "name": "geojson-path-finder-nw",
-  "version": "1.5.9001",
+  "version": "1.6.2+nw",
   "description": "Find shortest path through a network of GeoJSON",
   "repository": "git@github.com:perliedman/geojson-path-finder.git",
   "homepage": "https://github.com/perliedman/geojson-path-finder",
@@ -16,7 +16,7 @@
   "dependencies": {
     "@turf/distance": "^6.0.1",
     "@turf/explode": "^5.1.0",
-    "tap": "^14.2.2",
+    "tap": "^16.3.2",
     "tap-spec": "^5.0.0",
     "tinyqueue": "^2.0.0",
     "turf-point": "^2.0.1"
