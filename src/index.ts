@@ -12,7 +12,7 @@ import findPath from "./dijkstra";
 import preprocess from "./preprocessor";
 import roundCoord from "./round-coord";
 import { defaultKey } from "./topology";
-import { Key, Path, PathFinderGraph, PathFinderOptions } from "./types";
+import { EdgeVertexKey, Key, Path, PathFinderGraph, PathFinderOptions } from "./types";
 
 export default class PathFinder<
   TEdgeReduce,
@@ -72,7 +72,7 @@ export default class PathFinder<
                 if (index > 0) {
                   coordinates = coordinates.concat(
                     this.graph.compactedCoordinates[vertexKeys[index - 1]][
-                      vertexKey
+                    vertexKey
                     ]
                   );
                 }
@@ -86,24 +86,22 @@ export default class PathFinder<
           edgeDatas:
             "edgeDataReducer" in this.options
               ? path.reduce(
-                  (
-                    edges: (TEdgeReduce | undefined)[],
-                    vertexKey: Key,
-                    index: number,
-                    vertexKeys: Key[]
-                  ) => {
-                    if (index > 0) {
-                      edges.push(
-                        this.graph.compactedEdges[vertexKeys[index - 1]][
-                          vertexKey
-                        ]
-                      );
-                    }
+                (
+                  edges: (TEdgeReduce & EdgeVertexKey | undefined)[],
+                  vertexKey: Key,
+                  index: number,
+                  vertexKeys: Key[]
+                ) => {
+                  if (index > 0) {
+                    edges.push(
+                      Object.assign({ v1: vertexKeys[index - 1], v2: vertexKey }, this.graph.compactedEdges[vertexKeys[index - 1]][vertexKey])
+                    );
+                  }
 
-                    return edges;
-                  },
-                  []
-                )
+                  return edges;
+                },
+                []
+              )
               : undefined,
         };
       } else {
@@ -183,9 +181,9 @@ export function pathToGeoJSON<TEdgeReduce>(
   path: Path<TEdgeReduce> | undefined
 ):
   | Feature<
-      LineString,
-      { weight: number; edgeDatas: (TEdgeReduce | undefined)[] | undefined }
-    >
+    LineString,
+    { weight: number; edgeDatas: (TEdgeReduce | undefined)[] | undefined }
+  >
   | undefined {
   if (path) {
     const { weight, edgeDatas } = path;

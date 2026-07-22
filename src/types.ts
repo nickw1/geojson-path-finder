@@ -18,6 +18,7 @@ export type Topology<TProperties> = {
   edges: Edge<TProperties>[];
 };
 
+export type EdgeVertexKey = { v1: string, v2: string };
 /**
  * A graph vertex, containing the edges
  * connecting it to other vertices;
@@ -63,15 +64,15 @@ export type PathFinderOptions<TEdgeReduce, TProperties> = {
   ) => number | { forward: number; backward: number } | undefined;
   progress?: (type: string, completed: number, total: number) => void;
 } & (
-  | {
+    | {
       edgeDataReducer: (
         seed: TEdgeReduce,
         modifier: TEdgeReduce
       ) => TEdgeReduce;
       edgeDataSeed: (properties: TProperties) => TEdgeReduce;
     }
-  | {}
-);
+    | {}
+  );
 
 export type Path<TEdgeReduce> = {
   path: Position[];
