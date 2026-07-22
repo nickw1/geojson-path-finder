@@ -1,27 +1,38 @@
 {
-  "name": "geojson-path-finder-nw",
-  "version": "1.6.2+nw",
+  "name": "geojson-path-finder",
+  "version": "2.1.0",
   "description": "Find shortest path through a network of GeoJSON",
   "repository": "git@github.com:perliedman/geojson-path-finder.git",
   "homepage": "https://github.com/perliedman/geojson-path-finder",
-  "main": "index.js",
+  "module": "dist/esm/index.js",
+  "main": "dist/cjs/index.js",
+  "types": "dist/esm/index.d.ts",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "tap test/*.js | tap-spec"
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p tsconfig.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "prepare": "npm test && npm run build",
+    "pretest": "npm run build:esm",
+    "test": "vitest run"
   },
   "author": "Per Liedman <per@liedman.net>; mods by Nick Whitelegg (@nickw1 github)",
   "license": "ISC",
   "dependencies": {
-    "@turf/distance": "^6.0.1",
-    "@turf/explode": "^5.1.0",
-    "tap": "^16.3.2",
-    "tap-spec": "^5.0.0",
-    "tinyqueue": "^2.0.0",
-    "turf-point": "^2.0.1"
+    "@turf/distance": "^7.2.0",
+    "@turf/explode": "^7.2.0",
+    "@turf/helpers": "^7.2.0",
+    "tinyqueue": "^2.0.3"
   },
   "devDependencies": {
-    "@types/geojson": "^7946.0.8"
+    "@tsconfig/node16": "^1.0.3",
+    "@types/geojson": "^7946.0.15",
+    "@types/node": "^18.11.7",
+    "esm": "^3.2.25",
+    "typedoc": "^0.23.22",
+    "typescript": "^4.8.4",
+    "vitest": "^0.26.2"
   }
 }
