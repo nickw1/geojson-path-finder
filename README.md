@@ -1,12 +1,6 @@
 # GeoJSON Path Finder
 
-<<<<<<< HEAD
-**Please note, this is a modified version of the original `geojson-path-finder`, with some fixes applied. Please see [the github repo](https://github.com/nickw1/geojson-path-finder)**.
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/perliedman/geojson-path-finder.svg)](https://greenkeeper.io/) [![Build status](https://travis-ci.org/perliedman/geojson-path-finder.svg?branch=master)](https://travis-ci.org/perliedman/geojson-path-finder)
-=======
-[![Build status](https://travis-ci.org/perliedman/geojson-path-finder.svg?branch=master)](https://travis-ci.org/perliedman/geojson-path-finder)
->>>>>>> upstream/master
+**Please note, this is a modified version of the original `geojson-path-finder`, with some modifications. Please see [the github repo](https://github.com/nickw1/geojson-path-finder)**.
 
 Find shortest paths through a network of GeoJSON.
 
