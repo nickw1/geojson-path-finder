@@ -1,6 +1,6 @@
 # GeoJSON Path Finder
 
-**Please note, this is a modified version of the original `geojson-path-finder`, with some modifications. Please see [the github repo](https://github.com/nickw1/geojson-path-finder)**.
+**Please note, this is a modified version of the original `geojson-path-finder`, with a small modification: the vertex keys of each edge are added to the reduced edge data for that edge as properties `v1` and `v2`. [The GitHub repo is available here](https://github.com/nickw1/geojson-path-finder); [the original is available here](https://github.com/perliedman/geojson-path-finder)**.
 
 Find shortest paths through a network of GeoJSON.
 
